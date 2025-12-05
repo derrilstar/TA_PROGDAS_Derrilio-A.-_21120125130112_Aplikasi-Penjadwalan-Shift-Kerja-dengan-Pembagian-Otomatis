@@ -42,13 +42,12 @@ class ShiftScheduler:
             random.shuffle(daftar)
 
         idx = 0  # pointer global (muter terus)
-        list_hari = ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"] 
         for hari in range(1, jumlah_hari + 1):
             for shift_name in self.shifts:
                 for slot_ke in range(1, self.kapasitas + 1):
                     karyawan = daftar[idx]
                     self.jadwal.append({
-                        "hari": list_hari[(hari - 1) % 7],
+                        "hari": hari,
                         "shift": shift_name,
                         "slot": slot_ke,
                         "nama": karyawan.get_nama()
